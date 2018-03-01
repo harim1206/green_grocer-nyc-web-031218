@@ -61,11 +61,11 @@ def apply_coupons(cart, coupons)
 
         #insert new fruit with coupon
         if return_cart["#{fruit} W/COUPON"] == nil
-          return_cart["#{fruit} W/COUPON"] = {}
-          x = return_cart["#{fruit} W/COUPON"]
-          x[:price] = coupons[:cost]
-          x[:clearance] = cart[fruit][:clearance]
-          x[:count] = 1
+          return_cart["#{fruit} W/COUPON"] = {
+            :count => 1,
+            :price => coupons[:cost]
+          }
+          return_cart["#{fruit} W/COUPON"][:clearance] = cart[fruit][:clearance]
 
         else
           return_cart["#{fruit} W/COUPON"][:count] += 1
